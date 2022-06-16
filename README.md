@@ -3,6 +3,7 @@ This is currently the first and fastest snapchat creator on the whole of github,
 
 ⚠️ SCROLL DOWN!
 
+If you do not know how to run/use this, please take a look at releases and download the latest executable version.
 ![image](https://user-images.githubusercontent.com/100996857/174015246-c8b8a5ff-eef5-4ab4-9f57-17091391d55a.png)
 
 Contact me for custom tools!
