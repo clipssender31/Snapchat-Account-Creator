@@ -1,6 +1,6 @@
 # Snapchat-Account-Creator
 
-20 stars and I release it
+15 stars and I release it
 
 
 # Contacts
