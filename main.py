@@ -78,7 +78,7 @@ def register():
 
             randomd = "".join([random.choice(string.digits + string.ascii_letters) for i in range(10)])
 
-            xtoken=client.get('https://accounts.snapchat.com/accounts/signup?client_id=ads-api&referrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true')#tbh idk why i am sending the same request twice :(
+            xtoken=client.get('https://accounts.snapchat.com/accounts/signup?client_id=ads-api&referrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true') #get new xsrf token
             xsrf_token=client.cookies['xsrf_token']
             if xtoken.status_code==200:  
                 print(f'{bcolors.RED}[XSRF]{bcolors.RESET} {bcolors.BLUE}Got xsrf Token: {xsrf_token}{bcolors.RESET}')
