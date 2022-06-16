@@ -1,5 +1,5 @@
 # First and Fastest Snapchat Account Creator on github
-This is currently the first and fastest snapchat creator on the whole of github, completely free to use! Please do not skid/sell this, please give credits and share to everyone.
+This is currently the first and fastest snapchat creator on the whole of github, completely free to use! Please do not skid/sell this, please give credits and share to everyone. I will be updating this tool regularly, after each patch.
 
 ⚠️ SCROLL DOWN!
 
