@@ -1,11 +1,13 @@
-import httpx, random, string, names,os,pyfiglet; from pypasser import reCaptchaV3 as solver;from names_generator import generate_name; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from random_user_agent.user_agent import UserAgent;from random_user_agent.params import SoftwareName, OperatingSystem
+import httpx, random, string,os,pyfiglet; from pypasser import reCaptchaV3 as solver; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from random_user_agent.user_agent import UserAgent;from random_user_agent.params import SoftwareName, OperatingSystem
 
 
-
+def menu():
+    print(pyfiglet.figlet_format(f"Clips SnapCreator"))
+    print("Author: clipssender#2920")
+    os.system("title Clips SnapCreator \ Created by clipssender#2920 \ .gg/p9fGBAHa \ github.com/clipssender31")
 
 def random_pass():
     return ''.join([random.choice(string.digits + string.ascii_letters) for i in range(16)])
-
 
 
 class bcolors:
@@ -21,8 +23,8 @@ class bcolors:
     RESET = '\033[0m'
 
 
-
-
+CreatedAccs=0
+FailedAccs=0
 def GetProxy():
     with open('./Data/Proxies.txt', 'r') as temp_file:
         proxy = [line.rstrip('\n') for line in temp_file]
@@ -46,6 +48,8 @@ def GetProxies():
     
 
 def register():
+    global CreatedAccs
+    global FailedAccs
     while True:
         try:
             software_names = [SoftwareName.CHROME.value]
@@ -60,7 +64,7 @@ def register():
                 'Accept-Language': 'en-US;q=1',
                 'Accept': 'application/json',
                 'Connection': 'keep-alive',
-                'user-agent': user_agent}, 
+                'user-agent': f"{user_agent}"},
                 proxies=GetProxies(), 
                 timeout=30
                 )
@@ -84,17 +88,17 @@ def register():
                 print(f'{bcolors.RED}[XSRF]{bcolors.RESET} {bcolors.BLUE}Got xsrf Token: {xsrf_token}{bcolors.RESET}')
 
             data={
-            'first_name': 'Michael', 
-            'last_name': 'Schumacher', 
+            'first_name': 'Mick', 
+            'last_name': 'Shumacher', 
             'username': f"{name}", 
-            'password': f'Qpwo12$%@g_', 
+            'password': f'{randompass}', 
             'birthday': '2000-01-31', 
             'email': f'{randomd}@gmail.com',
             'xsrf_token': xsrf_token, 
             'g-recaptcha-response': solver("https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LezjdAZAAAAAD1FaW81QpkkplPNzCNnIOU5anHw&co=aHR0cHM6Ly9hY2NvdW50cy5zbmFwY2hhdC5jb206NDQz&hl=en&v=M-QqaF9xk6BpjLH22uHZRhXt&size=invisible&badge=inline&cb=9qlf8d10oqh9"),
             'client_id': 'ads-api', 
-            'referrer': 'https%3A%2F%2Fads.snapchat.com%2Fgetstarted', 
-            'ignore_welcome_email': 'true'}
+            'referrer': 'https://ads.snapchat.com/getstarted', 
+            'ignore_welcome_email': 'false'}
 
 
             res=client.post('https://accounts.snapchat.com/accounts/signup', data=data)
@@ -108,17 +112,16 @@ def register():
                 print(f'{bcolors.RED}[GENERATOR]{bcolors.RESET} {bcolors.RED}Account not created: {name}. Trying again...{bcolors.RESET}')
                 register()
         except Exception as e:
-            print(f'error{e}')
-  
+            print(f'An error has occured: {e}')
 if __name__ == "__main__":
     os.system("cls")
-    print(pyfiglet.figlet_format(f"Clips SnapCreator"))
-    os.system("title Clips SnapCreator \ Created by clipssender#2920 \ .gg/p9fGBAHa \ github.com/clipssender31")
-    print("Author: clipssender#2920")
+    menu()
     threadAmount=input(f'{bcolors.RED}Thread Amount: {bcolors.RESET}')
     threadAmount = 1 if threadAmount == "" else int(threadAmount)
     threads = []
+    
     with ThreadPoolExecutor(max_workers=threadAmount) as reg:  
-        for x in range(threadAmount):
-            reg.submit(register)
 
+        for x in range(threadAmount):
+
+            reg.submit(register)
