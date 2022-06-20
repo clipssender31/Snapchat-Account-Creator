@@ -8,6 +8,12 @@ If you do not know how to run/use this, please take a look at releases and downl
 
 Contact me for custom tools!
 
+# Features
+* Bypassing reCaptchav3
+* HTTP/Proxy support
+* Extremely Fast
+* Bypassing Bot detection
+
 # Todo ⚠
 * Add Mail Verification, though this is not needed.
 * Make a multitool to mass manage these accounts. for eg. spammer, pfp changer, name changer etc.
