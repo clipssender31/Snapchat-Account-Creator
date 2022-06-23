@@ -1,10 +1,10 @@
-import httpx, random, string,os,pyfiglet; from pypasser import reCaptchaV3 as solver; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from random_user_agent.user_agent import UserAgent;from random_user_agent.params import SoftwareName, OperatingSystem
+import httpx, random, string,os,pyfiglet, ctypes; from pypasser import reCaptchaV3 as solver; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from random_user_agent.user_agent import UserAgent;from random_user_agent.params import SoftwareName, OperatingSystem
 
 
 def menu():
     print(pyfiglet.figlet_format(f"Clips SnapCreator"))
     print("Author: clipssender#2920")
-    os.system("title Clips SnapCreator \ Created by clipssender#2920 \ .gg/p9fGBAHa \ github.com/clipssender31")
+    ctypes.windll.kernel32.SetConsoleTitleW("Clips SnapCreator | Created by clipssender#2920 | .gg/p9fGBAHa | github.com/clipssender31")
 
 def random_pass():
     return ''.join([random.choice(string.digits + string.ascii_letters) for i in range(16)])
