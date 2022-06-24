@@ -1,0 +1,4 @@
+httpx==0.22.0
+pyfiglet==0.8.post1
+PyPasser==0.0.5
+random_user_agent==1.0.1
