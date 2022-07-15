@@ -6,6 +6,7 @@ def menu():
     print("Author: clipssender#2920")
     ctypes.windll.kernel32.SetConsoleTitleW("Clips SnapCreator | Created by clipssender#2920 | .gg/p9fGBAHa | github.com/clipssender31")
 
+    
 def random_pass():
     return ''.join([random.choice(string.digits + string.ascii_letters) for i in range(16)])
 
