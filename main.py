@@ -55,7 +55,7 @@ def register():
             software_names = [SoftwareName.CHROME.value]
             operating_systems = [OperatingSystem.WINDOWS.value, OperatingSystem.LINUX.value]   
             user_agent_rotator = UserAgent(software_names=software_names, operating_systems=operating_systems, limit=100)
-
+            proxy = {"http": f"{GetProxies}"}
             user_agent = user_agent_rotator.get_random_user_agent()
             randompass=''.join([random.choice(string.digits + string.ascii_letters) for i in range(8)])
             client = httpx.Client(
@@ -95,7 +95,7 @@ def register():
             'birthday': '2000-01-31', 
             'email': f'{randomd}@gmail.com',
             'xsrf_token': xsrf_token, 
-            'g-recaptcha-response': solver("https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LezjdAZAAAAAD1FaW81QpkkplPNzCNnIOU5anHw&co=aHR0cHM6Ly9hY2NvdW50cy5zbmFwY2hhdC5jb206NDQz&hl=en&v=M-QqaF9xk6BpjLH22uHZRhXt&size=invisible&badge=inline&cb=9qlf8d10oqh9"),
+            'g-recaptcha-response': solver("https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LezjdAZAAAAAD1FaW81QpkkplPNzCNnIOU5anHw&co=aHR0cHM6Ly9hY2NvdW50cy5zbmFwY2hhdC5jb206NDQz&hl=en&v=M-QqaF9xk6BpjLH22uHZRhXt&size=invisible&badge=inline&cb=9qlf8d10oqh9", proxy),
             'client_id': 'ads-api', 
             'referrer': 'https://ads.snapchat.com/getstarted', 
             'ignore_welcome_email': 'false'}
@@ -115,8 +115,11 @@ def register():
             print(f'An error has occured: {e}')
 if __name__ == "__main__":
     os.system("cls")
+    
     menu()
+    
     threadAmount=input(f'{bcolors.RED}Thread Amount: {bcolors.RESET}')
+    
     threadAmount = 1 if threadAmount == "" else int(threadAmount)
     threads = []
     
