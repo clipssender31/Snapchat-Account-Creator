@@ -78,7 +78,7 @@ def register():
                 print(f'{bcolors.RED}[USERNAME]{bcolors.RESET} {bcolors.MAGENTA}Username is available: {bcolors.GREEN}{name}{bcolors.RESET}')
             else:
                 print(f'{bcolors.RED}[USERNAME]{bcolors.RESET} {bcolors.RED}Username is taken: {bcolors.GREEN}{name}{bcolors.RESET}.{bcolors.RED} Trying again...{bcolors.RESET}')
-                register()
+                continue
 
             randomd = "".join([random.choice(string.digits + string.ascii_letters) for i in range(10)])
 
