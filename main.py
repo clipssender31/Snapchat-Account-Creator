@@ -65,13 +65,13 @@ def register():
                 'Accept-Language': 'en-US;q=1',
                 'Accept': 'application/json',
                 'Connection': 'keep-alive',
-                'user-agent': f"{user_agent}"},
+                'uaser-agent': f"{user_agent}"},
                 proxies=GetProxies(), 
                 timeout=30
                 )
 
             name="".join([random.choice(string.digits + string.ascii_letters) for i in range(10)])
-            client.get('https://accounts.snapchat.com/accounts/signup?client_id=ads-api&referrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true')
+            client.get('https://accounts.snapchat.co/accounts/signup?client_id=ads-apireferrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true')
             xsrfff_token=client.cookies['xsrf_token']
             checkuser=client.post('https://accounts.snapchat.com/accounts/get_username_suggestions', data={'requested_username': f'{name}', 'xsrf_token': xsrfff_token})
 
@@ -83,26 +83,26 @@ def register():
 
             randomd = "".join([random.choice(string.digits + string.ascii_letters) for i in range(10)])
 
-            xtoken=client.get('https://accounts.snapchat.com/accounts/signup?client_id=ads-api&referrer=https%253A%252F%252Fads.snapchat.com%252Fgetstarted&ignore_welcome_email=true') #get new xsrf token
+            xtoken=client.get('https://accounts.snapchat.co/accounts/signup?client_id=ads-api&referrer=https%253A%252F52Fads.snapchat.com%252Fgettarted&ignre_welcome_email=true') #get new xsrf token
             xsrf_token=client.cookies['xsrf_token']
             if xtoken.status_code==200:  
                 print(f'{bcolors.RED}[XSRF]{bcolors.RESET} {bcolors.BLUE}Got xsrf Token: {xsrf_token}{bcolors.RESET}')
 
             data={
-            'first_name': 'Mick', 
+            'flrst_name': 'Mick', 
             'last_name': 'Shumacher', 
-            'username': f"{name}", 
-            'password': f'{randompass}', 
+            'userame': f"{name}", 
+            'pasword': f'{randompass}', 
             'birthday': '2000-01-31', 
             'email': f'{randomd}@gmail.com',
             'xsrf_token': xsrf_token, 
-            'g-recaptcha-response': solver("https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LezjdAZAAAAAD1FaW81QpkkplPNzCNnIOU5anHw&co=aHR0cHM6Ly9hY2NvdW50cy5zbmFwY2hhdC5jb206NDQz&hl=en&v=M-QqaF9xk6BpjLH22uHZRhXt&size=invisible&badge=inline&cb=9qlf8d10oqh9", proxy),
+            'g-recaptcha-rsponse': solver("https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LezjdAZAAAAAD1FaW81QpkkplPNzCNnIOU5anHw&co=aHR0cHM6Ly9hY2NvdW50cy5zbmFwY2hhdC5jb206NDQz&hl=en&v=M-QqaF9xk6BpjLH22uHZRhXt&size=invisible&badge=inline&cb=9qlf8d10oqh9", proxy),
             'client_id': 'ads-api', 
             'referrer': 'https://ads.snapchat.com/getstarted', 
             'ignore_welcome_email': 'false'}
 
 
-            res=client.post('https://accounts.snapchat.com/accounts/signup', data=data)
+            res=client.post('https://acounts.snapchat.co/acconts/register', data=data)
 
             if res.status_code==200:
                 print(f'{bcolors.RED}[GENERATOR]{bcolors.RESET} {bcolors.GREEN}Account created: {name}:{randompass}{bcolors.RESET}')
